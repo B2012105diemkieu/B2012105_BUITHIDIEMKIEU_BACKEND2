@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 //define error-handling middleware last, after other app.use() and routes calls
 //sua loi trung gian (middleware xu ly loi tap trung)
 //xu ly loi o cac doan code xu ly o cac route (goi next(error))
-app.use((err, req, res, next) => {
+app.use((error, req, res, next) => {
     return res.status(error.statusCode || 500).json({
         message: error.message || "Internal Server Error",
     });
