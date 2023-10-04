@@ -30,7 +30,7 @@ class ContactService {
             { $set: { favorite: contact.favorite === true }},
             { returnDocument: "after", upsert: true}
         );
-        return result.value;
+        return result;
     }
 
     //setup findAll()
@@ -62,7 +62,7 @@ class ContactService {
             { $set: update },
             { returnDocument: "after" }
         );
-        return result.value;
+        return result;
     }
 
     //setup delete()
@@ -70,7 +70,7 @@ class ContactService {
         const result = await this.Contact.findOneAndDelete({
             _id: ObjectId.isValid(id)?new ObjectId(id):null,
         });
-        return result.value;
+        return result;
     }
 
     //setup findFavorite()
